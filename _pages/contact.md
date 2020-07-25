@@ -33,7 +33,7 @@ Alliance, Ohio 44601
       <hr>
       <div class="form-group">
         <label for="exampleTextMessage">Message</label>
-        <input id="exampleTextMessage" type="textarea" name="message">
+        <textarea id="exampleTextMessage" name="message"></textarea>
       </div>
       <hr>
       <button type="submit" class="btn btn-primary">Submit</button>
