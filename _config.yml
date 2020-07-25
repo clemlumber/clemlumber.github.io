@@ -105,3 +105,7 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+head_scripts:
+  - https://www.google.com/recaptcha/api.js?render=6LexG7YZAAAAAFh-J3uSH5R1XCwrjn-mmDD6rZQr
+  - /assets/js/recaptcha.js
