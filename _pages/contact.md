@@ -29,15 +29,11 @@ Alliance, Ohio 44601
         <label for="exampleInputName">Name</label>
         <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="Enter your name" required="required">
       </div>
+      <hr>
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Favourite Platform</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="platform" required="required">
-          <option>Github</option>
-          <option>Gitlab</option>
-          <option>Bitbucket</option>
-        </select>
+        <label for="exampleTextMessage">Message</label>
+        <input id="exampleTextMessage" type="textarea" name="message">
       </div>
       <hr>
-      <input type="text" name="message">
       <button type="submit" class="btn btn-primary">Submit</button>
 </form>
