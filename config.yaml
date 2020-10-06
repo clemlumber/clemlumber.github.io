@@ -109,9 +109,9 @@ params:
     # option to specify the title in the homepage
     title: "Clem Lumber"
     # option to specify the subtitle in the homepage
-    subtitle: "Clem Lumber & Distributing Co"
+    subtitle: "Distributing Co"
     # option to specify image in the homepage
-    image: "/images/avataaars.png" # worker.svg 
+    image: "/images/logo.jpg" # worker.svg 
     # option to specify the width of the image in the homepage
     imageWidth: 500px
 
@@ -149,7 +149,7 @@ params:
     #    link: username
     #    title: Instagram
     # option to specify the copyright in the footer
-    copyright: Clem Lumber & Distributing Co - 2020
+    copyright: Clem Lumber - 2020
 
 ###################################################################
 ################## multilanguage support options ##################
