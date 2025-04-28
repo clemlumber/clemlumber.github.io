@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+		<link rel="alternate" href="{{ '/feed/feed.xml' | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+
+		{#- Uncomment this if you'd like folks to know that you used Eleventy to build your site!  #}
+		<meta name="generator" content="{{ eleventy.generator }}">
+
+		{#-
+		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
+		1. CSS:
+			* Add to a per-page bundle using `{% css %}{% endcss %}`
+			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+		2. Or for JavaScript:
+			* Add to a per-page bundle using `{% js %}{% endjs %}`
+			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
+		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+		#}
+
+		{#- Add an arbitrary string to the bundle #}
+		<style>/* This is an arbitrary CSS string added to the bundle */</style>
+		{#- Add the contents of a file to the bundle #}
+		{# REMOVED: <style>{% include "css/index.css" %}</style> #}
+		{#- Or you can add from node_modules #}
+		{# <style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style> #}
+
+		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
+		{# REMOVED: <style>{% getBundle "css" %}</style> #}
+		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+		{# REMOVED: <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+
+		{#- Add the heading-anchors web component to the JavaScript bundle #}
+		{# REMOVED: <script type="module">{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script> #}
+		{# Optional: Add head_scripts from metadata #}
+		{% if metadata.head_scripts %}
+		  {% for scriptUrl in metadata.head_scripts %}
+			<script src="{{ scriptUrl | url }}"></script>
+		  {% endfor %}
+		{% endif %}
+
+		{# Correctly link the CSS file copied via passthrough #}
+		<link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
+		<link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<div class="container site-header">
+				<a href="/" class="home-link">{{ metadata.title }}</a>
+
+				{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+				<nav>
+					<h2 class="visually-hidden">Top level navigation menu</h2>
+					<ul class="nav">
+					{%- for entry in collections.all | eleventyNavigation %}
+						<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+					{%- endfor %}
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="skip">
+			<div class="container">
+				{% if heroImage %}
+				<div class="hero">
+					<img src="{{ heroImage | url }}" alt="{{ heroImageAlt or 'Clem Lumber facility' }}">
+				</div>
+				{% endif %}
+				
+				<div class="content-section">
+					{{ content | safe }}
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<h3 id="clem-lumber-and-distributing-co">{{ metadata.name }}</h3>
+						<p>{{ metadata.description }}</p>
+						<p>P. O. Box 2238<br>Alliance, Ohio 44601</p>
+						<p>Email: <a href="mailto:{{ metadata.email }}">{{ metadata.email }}</a></p>
+						<p>Sales: {{ metadata.phone }}<br>Fax: {{ metadata.fax }}</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
+
+		{% if metadata.head_scripts %}
+		<script>
+			function onRecaptchaLoad() {
+				grecaptcha.ready(function() {
+					grecaptcha.execute('{{ metadata.recaptcha_site_key }}', {action: 'submit'}).then(function(token) {
+						document.getElementById('captchaResponse').value = token;
+					});
+				});
+			}
+		</script>
+		{% endif %}
+	</body>
+</html>
