@@ -22,7 +22,7 @@ eleventyNavigation:
 
     <p><strong>Email:</strong> <a href="mailto:{{ metadata.email }}">{{ metadata.email }}</a></p>
 
-    <p><strong>Sales:</strong> {{ metadata.phone }}</p>
+    <p><strong>Sales:</strong> <a href="tel:+1-{{ metadata.phone }}">{{ metadata.phone }}</a></p>
     <p><strong>Fax:</strong> {{ metadata.fax }}</p>
 
     <h2>Business Hours</h2>
