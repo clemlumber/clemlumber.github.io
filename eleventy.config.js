@@ -26,6 +26,8 @@ export default async function(eleventyConfig) {
 	// });
 	// Copy our existing `assets` folder (which includes css)
 	eleventyConfig.addPassthroughCopy("assets");
+	// Copy robots.txt to the root of the output directory
+	eleventyConfig.addPassthroughCopy("robots.txt");
 	// Copy the starter theme's css folder (assuming it's copied to assets/css)
 	// eleventyConfig.addPassthroughCopy("css", "assets/css"); // Copy css/ -> _site/assets/css
 	// Copy feed stylesheet if used by feedPlugin
