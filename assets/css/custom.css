@@ -110,23 +110,19 @@ footer {
 /* Ensure footer text is readable in light mode */
 @media (prefers-color-scheme: light) {
   footer {
-    /* Override the general 'color: white' for elements inside the footer */
-    /* We use a more specific selector or target child elements if needed, */
-    /* but for now, let's try setting it directly and see if it cascades. */
-    /* If elements inside still inherit 'white', we might need */
-    /* footer p, footer div, footer a etc. */
-     color: var(--text-color); /* Use the default text color for light mode */
+    /* Override the general 'color: white' for non-link elements inside the footer */
+     color: var(--text-color); /* Use the default text color for light mode (#333) */
   }
 
-  footer a {
-    color: var(--text-color-link); /* Use the default link color for light mode */
-  }
+  footer a,
   footer a:visited {
-    color: var(--text-color-link-visited);
+    /* Make links white for contrast against dark footer bg in light mode */
+    color: var(--color-light); /* Use white */
   }
   footer a:hover,
   footer a:active {
-    color: var(--text-color-link-active);
+    /* Slightly dimmer white for hover/active */
+    color: var(--color-gray-20); /* Use light gray #e0e0e0 from index.css variables */
   }
 }
 
