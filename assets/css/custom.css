@@ -107,25 +107,6 @@ footer {
   /* Removed display: flex properties, container handles centering */
 }
 
-/* Ensure footer text is readable in light mode */
-@media (prefers-color-scheme: light) {
-  footer {
-    /* Override the general 'color: white' for non-link elements inside the footer */
-     color: var(--text-color); /* Use the default text color for light mode (#333) */
-  }
-
-  footer a,
-  footer a:visited {
-    /* Make links white for contrast against dark footer bg in light mode */
-    color: var(--color-light); /* Use white */
-  }
-  footer a:hover,
-  footer a:active {
-    /* Slightly dimmer white for hover/active */
-    color: var(--color-gray-20); /* Use light gray #e0e0e0 from index.css variables */
-  }
-}
-
 /* Removed footer > .container specific styles, rely on general .container */
 
 .footer-content {
