@@ -108,14 +108,14 @@ footer {
 }
 
 /* Style links within the footer */
-footer a,
-footer a:visited {
+.footer-info a,
+.footer-info a:visited {
   color: white; /* Ensure links are white against dark background */
   text-decoration: underline; /* Add underline for clarity */
 }
 
-footer a:hover,
-footer a:active {
+.footer-info a:hover,
+.footer-info a:active {
   color: var(--color-gray-20); /* Use light gray for hover/active */
 }
 
