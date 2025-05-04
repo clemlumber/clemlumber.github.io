@@ -107,6 +107,18 @@ footer {
   /* Removed display: flex properties, container handles centering */
 }
 
+/* Style links within the footer */
+footer a,
+footer a:visited {
+  color: white; /* Ensure links are white against dark background */
+  text-decoration: underline; /* Add underline for clarity */
+}
+
+footer a:hover,
+footer a:active {
+  color: var(--color-gray-20); /* Use light gray for hover/active */
+}
+
 /* Removed footer > .container specific styles, rely on general .container */
 
 .footer-content {
