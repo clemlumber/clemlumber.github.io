@@ -100,11 +100,34 @@ main {
 /* Footer */
 footer {
   background-color: var(--color-dark);
-  color: white;
+  color: white; /* Default text color for dark footer bg */
   padding: 2rem 0;
   width: 100%; /* Ensure footer spans full width */
   flex-shrink: 0; /* Prevent footer from shrinking */
   /* Removed display: flex properties, container handles centering */
+}
+
+/* Ensure footer text is readable in light mode */
+@media (prefers-color-scheme: light) {
+  footer {
+    /* Override the general 'color: white' for elements inside the footer */
+    /* We use a more specific selector or target child elements if needed, */
+    /* but for now, let's try setting it directly and see if it cascades. */
+    /* If elements inside still inherit 'white', we might need */
+    /* footer p, footer div, footer a etc. */
+     color: var(--text-color); /* Use the default text color for light mode */
+  }
+
+  footer a {
+    color: var(--text-color-link); /* Use the default link color for light mode */
+  }
+  footer a:visited {
+    color: var(--text-color-link-visited);
+  }
+  footer a:hover,
+  footer a:active {
+    color: var(--text-color-link-active);
+  }
 }
 
 /* Removed footer > .container specific styles, rely on general .container */
